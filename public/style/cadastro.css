@@ -8,7 +8,7 @@
 }
 
 body {
-  background-image: url(../img/abackground.webp);
+  background-image: url('../img/abackground.webp');
   min-height: 100vh;
   display: flex;
   align-items: center;
@@ -23,15 +23,23 @@ body {
 }
 
 /* #pass { */
-  /* padding-right: 20px; */
+
+/* padding-right: 20px; */
+
 /* } */
 
 /* .olho { */
-  /* left: 58.6em; */
-  /* padding-top: 1.58em; */
-  /* cursor: pointer; */
-  /* position: absolute; */
-  /* width: 37px; */
+
+/* left: 58.6em; */
+
+/* padding-top: 1.58em; */
+
+/* cursor: pointer; */
+
+/* position: absolute; */
+
+/* width: 37px; */
+
 /* } */
 
 .form {
@@ -100,14 +108,14 @@ body {
   outline: none;
 }
 
-@media (max-width: 425px){
-  .form{
+@media (max-width: 425px) {
+  .form {
     width: 26em;
     border-radius: 30px;
   }
 }
 
-@media (max-width: 320px){
+@media (max-width: 320px) {
   .form .inputs input {
     width: 300px;
     height: 35px;

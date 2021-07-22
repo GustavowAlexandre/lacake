@@ -10,7 +10,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background-image: url(../img/abackground.webp);
+  background-image: url('../img/abackground.webp');
   background-size: 70%;
   background-position: center;
 }
@@ -19,6 +19,7 @@ body {
   text-align: center;
   font-size: 25px;
 }
+
 /**
 #pass {
   padding-right: 20px;
@@ -99,39 +100,37 @@ body {
 }
 
 @media (max-width: 425px) {
-  body{
-  background-size: 100%;
+  body {
+    background-size: 100%;
   }
   .h1 {
     text-align: center;
     font-size: 23px;
   }
-.form {
-  height: 30em;
-  width: 28em;
-}
-.form .inputs {
-  padding: 15px;
-}
-
-.form .inputs input {
-  width: 300px;
-  height: 45px;
-}
-}
-@media (max-width: 375px) {
-
- .form{
-  height: 28em;
-  width: 25em;
- }
-
-}
-@media (max-width: 325px) {
-
-  .form{
-   height: 31em;
-   width: 23em;
-   border-radius: 20px;
+  .form {
+    height: 30em;
+    width: 28em;
   }
- }
+  .form .inputs {
+    padding: 15px;
+  }
+  .form .inputs input {
+    width: 300px;
+    height: 45px;
+  }
+}
+
+@media (max-width: 375px) {
+  .form {
+    height: 28em;
+    width: 25em;
+  }
+}
+
+@media (max-width: 325px) {
+  .form {
+    height: 31em;
+    width: 23em;
+    border-radius: 20px;
+  }
+}
