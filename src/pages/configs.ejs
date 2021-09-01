@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <head>
   <title>Configs</title>
   <meta charset="utf-8" />
@@ -24,57 +23,76 @@
     </div>
 
     <div class="content">
-        <form id="perfil">
-          <div class="perfil">
-        <h3>Perfil</h3>    
-        <form id="profile">
-        <label for="editname">Edite o nome da sua loja:</label>
-        <p><input type="text" id="editname" class="inputstyle"></p>
-        <label for="editbio">Edite sua bio:</label>
-        <p><textarea rows="4" cols="15" maxlength="144" id="editbio" class="inputstyle"></textarea></p>
-        <div class="button"><input type="reset"> <input type="submit"></div></form>
+        <div class="perfil">
+          <h3>Perfil</h3>
+
+          <form name="configs" id="configs" method="POST" action="/configs" class="form" onSubmit="verificar()">
+            <label for="nomeloja">Edite o nome da sua loja:</label>
+
+
+            <p><input class="inputstyle" form="configs" type="text" name="nomeloja" id="nomeloja" ></p>
+
+
+            <label for="editbio">Edite sua bio:</label>
+            <p>
+              <textarea class="inputstyle" form="configs" rows="4" cols="15" maxlength="144" name="editbio" id="editbio" >
+
+              </textarea></p>
+            <div class="button"><input type="reset"> <input type="submit"></div>
      
-        </form></div>
-        <div class="endereco">
-        <h3> Endereço</h3>
-        <form id="editadress">
-          
-          <div class="cep"><label for="editCEP">CEP</label><input type="text" id="editCEP" size="9" maxlength="9"
-              placeholder="00000-000"> <a target="_blank"
-              href="https://buscacepinter.correios.com.br/app/endereco/index.php?t">Não sabe?</a> UF <input type="text" size="2" id="edituf"></div>
-              <label for="editcidade">Cidade</label>
-              <p><input type="text" id="editcidade" class="inputstyle"></p>
-              <label for="editlogradouro">Logradouro</label>
-          <p><input type="text" id="editlogradouro" class="inputstyle"></p>
-        
-          <label for="editbairro">Bairro</label>
-          <p><input type="text" id="editbairro" class="inputstyle"></p>
-          <div class="complnum">
-            <div class="numero">
-              <label for="editnum">Número:</label>
-              <input type="text" id="editnum" size="5">
-            </div>
-            <div class="complemento">
-              <label for="editcompl">Complemento:</label>
-              <input type="text" id="editnum" size="22">
-            </div>
-           
+    </div>
+    <div class="endereco">
+      <h3> Endereço</h3>
+        <div class="cep">
+          <label for="cep">CEP</label>
+          <input type="text" form="configs" name="cep" id="cep" size="9" maxlength="9"
+            placeholder="00000-000"> <a target="_blank"
+            href="https://buscacepinter.correios.com.br/app/endereco/index.php?t">Não sabe?</a>
+          UF <input type="text" size="2" id="uf">
+        </div>
+
+        <label for="cidade">Cidade</label>
+        <p>
+        <input class="inputstyle" form="configs" type="text" form="configs" name="cidade" id="cidade" >
+        </p>
+        <label for="logradouro">Logradouro</label>
+
+        <p>
+        <input class="inputstyle" form="configs" type="text" name="logradouro" id="logradouro">
+      </p>
+
+        <label for="bairro">Bairro</label>
+        <p>
+        <input class="inputstyle" form="configs" type="text" name="bairro" id="bairro">
+        </p>
+        <div class="complnum">
+          <div class="numero">
+            <label for="numero">Número:</label>
+            <input form="configs"type="text" name="numero"id="numero" size="5">
+          </div>
+          <div class="complemento">
+            <label for="complemento">Complemento:</label>
+            <input form="configs" type="text" name="complemento"id="complemento" size="22">
           </div>
 
-          <div class="button">
-         
-          <div><input type="reset"></div> <div><input type="submit"></div></div>
-           
-  
-          </form>
-         </div>
-  
-   
-      <hr>
-   
-  </div>
+        </div>
+
+        <div class="button">
+
+          <div><input type="reset"></div>
+          <div><input type="submit"></div>
+        </div>
+
+
+      </form>
     </div>
-    
+
+
+    <hr>
+
+  </div>
+  </div>
+
   </div>
   <div class="header">
     <div class="configcontainer">
@@ -110,8 +128,11 @@
   </div>
   <div class="loading"></div>
   <div class="borda"></div>
+
+  <script src="/scripts/javascript.js"></script>
   <script src="node_modules\angular\angular.js"></script>
   <script>
+
     function Mudarestado(el) {
       var display = document.getElementById(el).style.display;
       if (display == "none")
@@ -119,9 +140,9 @@
       else
         document.getElementById(el).style.display = 'none';
     }
-  
-  </script>
-  
-</body>
-</html>
 
+  </script>
+
+</body>
+
+</html>

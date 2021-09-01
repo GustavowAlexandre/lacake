@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <form class="form" onsubmit="return verificar()">
+    <form name="cadastro" id="cadastro" method="POST" action="/cadastro" class="form" onSubmit="verificar()">
         <h1>Cadastre-se</h1>
         <div class="inputs">
             <div class="h1">
@@ -21,42 +21,44 @@
         </div>
         <div class="inputs">
             <label for="nome">Nome</label>
-            <input type="text" name="nome" id="nome" placeholder="Digite seu nome">
+            <input class="form-input" form="cadastro" type="text" name="name" id="nome" placeholder="Digite seu nome">
         </div>
+
         <div class="inputs">
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" placeholder="Digite seu Email">
+            <input class="form-input" form="cadastro" type="email" name="email" id="email" placeholder="Digite seu Email">
         </div>
+
         <div class="inputs">
             <label for="pass">Senha</label>
-            <input type="password" nome="pass" id="pass" placeholder="Digite sua senha (minimo 10 caracteres)"
+            <input class="form-input" form="cadastro" type="password" name="password" id="password" placeholder="Digite sua senha (minimo 10 caracteres)"
                 maxlength="10">
-            <!-- <img src="https://cdn0.iconfinder.com/data/icons/ui-icons-pack/100/ui-icon-pack-14-512.png" id="olho" -->
-                <!-- class="olho"> -->
+          
         </div>
 
         <div class="inputs">
             <label for=cpf>CPf</label>
-            <input type="text" name="cpf" id="cpf" placeholder="Digite seu cpf">
+            <input class="form-input" form="cadastro" type="text" name="cpf" id="cpf" placeholder="Digite seu cpf">
         </div>
         <div class="inputs">
             <div class="inputs">
                 <label for="data">Data de Nascimento</label>
-                <input type="date" name="data" id="data">
+                <input class="form-input" form="cadastro" type="date" name="date" id="data">
             </div>
-
 
             <div class="inputs">
                 <label for="telefone">Telefone</label>
-                <input type="text" name="telefone" id="telefone" placeholder="Digite seu telefone">
+                <input class="form-input" form="cadastro" type="text" name="telefone" id="telefone" placeholder="Digite seu telefone">
             </div>
 
             <p class="text-center"> Já tem uma conta ?<a href="/login" id="signin"> <b>Entrar</b> </a></p>
 
             <input class="btn-submit" type="submit" value="Cadastre-se">
     </form>
-
-    <script src="javascript.js"></script>
+    
+    <script src="/scripts/jquery-3.5.1.min.js"></script>
+    <script src="/scripts/javascript.js"></script>
+    
 </body>
 
 </html>
