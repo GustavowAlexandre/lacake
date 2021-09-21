@@ -20,7 +20,7 @@ body{overflow-y:hidden}
 
 #profile {margin-top:2vh;}
 
-.body{display:flex; text-align:center; width:100vw; height:93.5vh;background-image:url(../img/backgroundconfigs1.webp); background-size:cover; z-index: 3;}
+.body{display:flex; text-align:center; width:100vw; height:93.5vh;background-image:url(../img/backgroundconfigs1.webp); background-size:contain; z-index: 3;}
 
 .background-block{ width:50vw; height:100%; background-size:auto; background-repeat:no-repeat; display:flex; align-items:center; justify-content:center;}
 

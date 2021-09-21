@@ -1,66 +1,70 @@
-function verificar(event) {
-  event.preventDefault();
-  function checkHasNotTypedField() {
-    const list = [...document.querySelectorAll(".form-input")];
+// ///function submit(event) {
+//   event.preventDefault();
+//   function checkHasNotTypedField() {
+//     const list = [...document.querySelectorAll(".form-input")];
 
-    console.log(list.filter((input) => !input.value));
+//     console.log(list.filter((input) => !input.value));
 
-    return list.filter((input) => !input.value).length > 0;
-  }
-  if (checkHasNotTypedField()) {
-    alert("Existem campos vazios pendentes");
-    return false;
-  }
-  return true;
-}
-
-//JS DO LOGIN
-
-//MASCARA JQUERY
-$("#cpf").mask("999.999.999-99");
-$("#telefone").mask("(99) 99999-9999");
-$("#cep").mask("99.999-999");
-
-// document.getElementById('olho').addEventListener('mousedown', function() {
-//   document.getElementById('pass').type = 'text';
-// });
-
-// document.getElementById('olho').addEventListener('mouseup', function() {
-//   document.getElementById('pass').type = 'password';
-// });
-
-// // Para que o password não fique exposto apos mover a imagem.
-// document.getElementById('olho').addEventListener('mousemove', function() {
-//   document.getElementById('pass').type = 'password';
-// });
-
-//   //javascript da LATERALBAR//*
-//   function openNav() {
-//     document.getElementById("mySidenav").style.width = "250px";
+//     return list.filter((input) => !input.value).length > 0;
 //   }
+//   console.log("aaaaaaaaaaaaaaaaaa");
 
-//   function closeNav() {
-//     document.getElementById("mySidenav").style.width = "0";
+//   if (checkHasNotTypedField()) {
+//     alert("Existem campos vazios pendentes");
+//     return;
 //   }
+// }///
 
-//   function openNav() {
-//     document.getElementById("mySidenav").style.width = "250px";
-//     document.getElementById("main").style.marginLeft = "250px";
-//   }
+const Form = {
+  phoneInput: document.querySelector("#telefone"),
+  cpfInput: document.querySelector("#cpf"),
 
-//   function closeNav() {
-//     document.getElementById("mySidenav").style.width = "0";
-//     document.getElementById("main").style.marginLeft = "0";
-//   }
+  submit: (event) => {
+    if (Form.checkHasNotTypedField()) {
+      event.preventDefault();
+      return;
+    }
+    Form.phoneInput.value = Form.destroyPhoneMask(Form.phoneInput.value);
+  },
 
-//   function openNav() {
-//     document.getElementById("mySidenav").style.width = "250px";
-//     document.getElementById("main").style.marginLeft = "250px";
-//     document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-//   }
+  login: (event) => {
+    if (Form.checkHasNotTypedField()) {
+      event.preventDefault();
+      return;
+    }
+  },
 
-//   function closeNav() {
-//     document.getElementById("mySidenav").style.width = "0";
-//     document.getElementById("main").style.marginLeft = "0";
-//     document.body.style.backgroundColor = "white";
-//   }
+  createPhoneMask: (value) => {
+    return value
+      .replace(/\D/g, "")
+      .replace(/(\d{2})(\d)/, "($1) $2")
+      .replace(/(\d{5})(\d{3})(\d)/, "$1-$2");
+  },
+
+  createCpfMask: (value) => {
+    return value.replace();
+  },
+
+  destroyPhoneMask: (value) => {
+    return value.replace(/\D/g, "");
+  },
+
+  checkHasNotTypedField: () => {
+    const inputList = [...document.querySelectorAll(".form-input")];
+    return inputList.filter((input) => !input.value).length > 0;
+  },
+
+  registerEvents: () => {
+    const phone = Form.phoneInput;
+    const cpf = Form.cpfInput;
+
+    phone.addEventListener("keypress", () => {
+      phone.value = Form.createPhoneMask(phone.value);
+    });
+    cpf.addEventListener("keypress", () => {
+      cpf.value = Form.createCpfMask(cpf.value);
+    });
+  },
+};
+
+Form.registerEvents();

@@ -27,8 +27,8 @@ body {
     text-align: center;
     width: 100vw;
     height: 93.5vh;
-    background-image: url('../img/backgroundconfigs1.webp');
-    background-size: cover;
+    background-image: url('../img/backgroundconfigs1.webp' );
+    background-size: contain;
     z-index: 3;
 }
 

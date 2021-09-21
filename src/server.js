@@ -1,10 +1,15 @@
 const express = require("express");
 const fetch = require("node-fetch");
+const middleware = require("./middleware/Authmiddleware");
+const controller = require("./controllers/AuthController");
+const cookieParser = require("cookie-parser");
 
 var app = express();
 app.set("view engine", "ejs");
 
 app.set("views", __dirname + "/pages/");
+
+app.use(cookieParser());
 
 app.use(express.json());
 
@@ -38,8 +43,9 @@ app.post("/cadastro", async function (req, res) {
   return res.redirect("/configs");
 });
 
-app.get("/configs", function (req, res) {
-  res.render("configs");
+app.get("/configs", middleware, async function (req, res) {
+  const response = await fetch("http://localhost:3000/configs/");
+  res.render("configs", { user: req.user });
 });
 
 app.post("/configs", async function (req, res) {
@@ -80,9 +86,9 @@ app.post("/configs", async function (req, res) {
   return res.redirect("/index");
 });
 
-app.get("/login", function (req, res) {
-  res.render("login");
-});
+app.get("/login", controller.loginView);
+
+app.post("/login", controller.login);
 
 app.get("/contato", function (req, res) {
   res.render("contato");
